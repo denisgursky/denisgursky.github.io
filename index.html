@@ -35,6 +35,12 @@
 		.highlight-code {
 			color: #efef8f;
 		}
+		.red {
+			color: #ff2c2d;
+		}
+		.green {
+			color: #17ff2e;
+		}
 	</style>
 </head>
 
@@ -114,6 +120,104 @@
 	&lt;/head&gt;
 	&lt;body&gt;Here is your page&lt;/body&gt;
 &lt;/html&gt;</code></pre>
+			</section>
+		</section>
+		<section>
+			<h1>Collaboration</h1>
+
+			<p>
+				<img src="img/collaboration.jpg"/>
+			</p>
+		</section>
+		<section>
+			<section>
+				<h2>How can many people work</h2>
+				<h2>work on a responsive project together?</h2>
+				<ul>
+					<li>Local environment</li>
+					<li>Proxy</li>
+					<li>Advanced including the library</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Local environment</h2>
+				<p>
+					<img src="img/local-env.png"/>
+				</p>
+			</section>
+			<section>
+				<h1>Proxy</h1>
+				<p>
+					<img src="img/proxy-env.png"/>
+				</p>
+			</section>
+			<section>
+				<h2>
+					Proxy server switches
+				</h2>
+				<p>
+					<code>http://qa.site.com/js/clientMap.js</code>
+				</p>
+				<p>
+					to
+				</p>
+				<p>
+					<code>http://localhost/js/clientMap.js</code>
+				</p>
+			</section>
+			<section>
+				<h2>Advanced including the library</h2>
+				<p>
+					<img src="img/advanced-env.png"/>
+				</p>
+			</section>
+			<section>
+				<h2>Changing the inline script</h2>
+					<pre><code>
+	&lt;script type="text/javascript"&gt;
+		(function(){
+			var env = window.localStorage
+						&& window.localStorage.getItem('rd-env')
+						|| 'qa';
+				responsify.start({
+					remoteDebug: false,
+					mobileOnly: true,
+					clientMapSrc: "//your-hostname/" + env + "/clientMap.js"
+				});
+
+			window.RD.env = function(name){
+				window.localStorage.setItem('rd-env', name);
+			};
+		})();
+	&lt;/script&gt;
+					</code></pre>
+				<p>Default environment is called 'qa'</p>
+				<p><code>javascript: RD.env('ENV_NAME')</code> in the address bar</p>
+				<p>to load other environment</p>
+			</section>
+			<section>
+				<h2>Comparison</h2>
+				<ul>
+					<li>
+						Local environment
+						<ul>
+							<li class="green">cons</li>
+							<li class="red">pros</li>
+						</ul>
+					</li>
+					<li>Proxy
+						<ul>
+							<li class="green">cons</li>
+							<li class="red">pros</li>
+						</ul>
+					</li>
+					<li>Advanced including the library
+						<ul>
+							<li class="green">cons</li>
+							<li class="red">pros</li>
+						</ul>
+					</li>
+				</ul>
 			</section>
 		</section>
 	</div>
