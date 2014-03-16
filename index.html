@@ -4,10 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>reveal.js - The HTML Presentation Framework</title>
-
-	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-	<meta name="author" content="Hakim El Hattab">
+	<title>ResponsiveJS</title>
 
 	<meta name="apple-mobile-web-app-capable" content="yes"/>
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
@@ -28,6 +25,17 @@
 	<!--[if lt IE 9]>
 	<script src="lib/js/html5shiv.js"></script>
 	<![endif]-->
+
+	<!--custom styles-->
+	<style>
+		.text-left {
+			text-align: left;
+		}
+
+		.highlight-code {
+			color: #efef8f;
+		}
+	</style>
 </head>
 
 <body>
@@ -37,16 +45,77 @@
 	<!-- Any section element inside of this container is displayed as a slide -->
 	<div class="slides">
 		<section>
-			<h1>Test1</h1>
-			<img src="svg/1.svg" onerror="this.src=your.png">.
+			<h1>ResponsiveJS</h1>
 		</section>
 
 		<section>
-			<h1>Test2</h1>
-			<img src="svg/2.svg" onerror="this.src=your.png">.
+			<h1>Headnote</h1>
+
+			<p>coming soon</p>
 		</section>
 
+		<section>
+			<section>
+				<h2>How to include the library?</h2>
 
+				<div class="text-left">
+					<p class="">Insert the library files:</p>
+					<ul>
+						<li>CSS: <code>5thfinger.responsive.css</code></li>
+						<li>JS: <code>5thfinger.responsive.js</code></li>
+					</ul>
+					<p class="fragment roll-in">Insert an inline script, that begins responsifying</p>
+
+					<p class="fragment roll-in"><a class="navigate-down">Example</a></p>
+				</div>
+			</section>
+			<section>
+				<h2>Simple including</h2>
+				<p>Insert the following markup inside the <code class="highlight-code">&lt;head&gt;</code> section</p>
+				<p>To minimize the impact on your site,</p>
+				<p>place the tag as <b>close as possible</b> the <code class="highlight-code">&lt;/head&gt;</code> tag.</p>
+				<pre><code>
+	&lt;link href="//your-hostname/5thfinger.responsive.css"
+			rel="stylesheet" type="text/css"/&gt;
+
+	&lt;script src="//your-hostname//5thfinger.responsive.js"
+			type="text/javascript">&lt;/script&gt;
+
+	&lt;script type="text/javascript"&gt;
+		responsify.start({
+			remoteDebug: false,
+			mobileOnly: true,
+			clientMapSrc: "//your-hostname/clientMap.js"
+		});
+	&lt;/script&gt;
+				</code></pre>
+			</section>
+			<section>
+				<h2>Full Example</h2>
+				<pre><code>
+&lt;html&gt;
+	&lt;head&gt;
+
+		<!--here your scripts, styles, whatever-->
+
+		&lt;link href="//your-hostname/5thfinger.responsive.css"
+				rel="stylesheet" type="text/css"/&gt;
+
+		&lt;script src="//your-hostname//5thfinger.responsive.js"
+				type="text/javascript">&lt;/script&gt;
+
+		&lt;script type="text/javascript"&gt;
+			responsify.start({
+				remoteDebug: false,
+				mobileOnly: true,
+				clientMapSrc: "//your-hostname/clientMap.js"
+			});
+		&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;Here is your page&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+			</section>
+		</section>
 	</div>
 
 </div>
@@ -83,6 +152,10 @@
 				return !!document.querySelector('[data-markdown]');
 			} },
 			{ src: 'plugin/highlight/highlight.js', async: true, callback: function() {
+				hljs.configure({
+					tabReplace: '  ',
+					languages:['js','html', 'css']
+				});
 				hljs.initHighlightingOnLoad();
 			} },
 			{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() {
