@@ -41,6 +41,10 @@
 		.green {
 			color: #17ff2e;
 		}
+
+		section {
+			text-align: left;
+		}
 	</style>
 </head>
 
@@ -64,16 +68,13 @@
 			<section>
 				<h2>How to include the library?</h2>
 
-				<div class="text-left">
-					<p class="">Insert the library files:</p>
-					<ul>
-						<li>CSS: <code>5thfinger.responsive.css</code></li>
-						<li>JS: <code>5thfinger.responsive.js</code></li>
-					</ul>
-					<p class="fragment roll-in">Insert an inline script, that begins responsifying</p>
-
-					<p class="fragment roll-in"><a class="navigate-down">Example</a></p>
-				</div>
+				<p class="">Insert the library files:</p>
+				<ul>
+					<li>CSS: <code>5thfinger.responsive.css</code></li>
+					<li>JS: <code>5thfinger.responsive.js</code></li>
+				</ul>
+				<p class="fragment roll-in">Insert an inline script, that begins responsifying</p>
+				<p class="fragment roll-in"><a class="navigate-down">Example</a></p>
 			</section>
 			<section>
 				<h2>Simple including</h2>
@@ -219,6 +220,126 @@
 					</li>
 				</ul>
 			</section>
+		</section>
+		<section>
+			<section>
+				<h1>clientMap.js</h1>
+				<p>Configuration object to setup project settings before executing client scripts</p>
+			</section>
+			<section>
+				<h1>Example</h1>
+				<pre><code>
+	responsify.clientMap = {
+		viewport: "",
+		bounds: {
+			phone: { maxWidth: 669 },
+			tablet: { minWidth: 670, maxWidth: 1280 },
+			desktop: { minWidth: 1281 }
+		},
+		controls: ["footerLinks"],
+		sources: {
+			timeout: 10000,
+			js: [{ src: "./js/master.js", callback: "runMaster"}],
+			css: [{ href:"./css/master.css" }]
+		}
+	};
+				</code></pre>
+			</section>
+			<section>
+				<h1>Viewport</h1>
+				<p>
+					Optional property, allows you to set your value for the viewport meta tag.
+				</p>
+				<p>
+					Default value:
+				</p>
+				<p>
+					<code>width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no</code>
+				</p>
+			</section>
+			<section>
+				<h1>Bounds</h1>
+				<p>
+					Declares ranges in pixels for the screen width
+				</p>
+				<pre><code>
+	bounds: {
+		phone: { maxWidth: 669 },
+		tablet: { minWidth: 670, maxWidth: 1280 },
+		desktop: { minWidth: 1281 }
+	}
+				</code></pre>
+			</section>
+			<section>
+				<h1>Bounds</h1>
+				<p>
+					Ability to separate the behavior for different bounds
+				</p>
+				<p>
+					The library creates some media queries to manage visibility of elements
+				</p>
+				<pre><code>
+	//element1 is visible only for phones
+	RD.boundManager.applyFor($(".element1-selector"), [bounds.phone]);
+
+	//element2 is visible for all bounds except phone
+	RD.boundManager.applyForOther($(".element2-selector"), [bounds.phone]);
+				</code></pre>
+			</section>
+			<section>
+				<h1>Controls</h1>
+				<p>List of <a href="#/controls">controls</a> the library loads</p>
+				<pre><code>
+	controls: [
+		"footerLinks",
+		"fullSiteLink",
+		"menuBlock"
+	]
+				</code></pre>
+			</section>
+			<section>
+				<h1>Sources</h1>
+				<p>The heart of the clientmap</p>
+				<p>Defines where the code must be applied</p>
+				<pre><code>
+	sources:{
+		timeout:10000,
+		js:[
+			{ src:"master.js", callback:"runMaster" },
+			{ src:"productList.js", contentCondition:[".products"],
+					callback:"runProductList" },
+			{ src:"product.js", urlCondition:["product"],
+					contentCondition:[".product"], callback:"runProduct" },
+			{ src:"iphone-ipad-only.js", uaCondition:["iphone", "ipad"],
+					callback:"runIphoneIpadOnly" }
+		],
+		css:[
+			{ href:"../css/master.css" },
+			{ href:"../css/productList.css", contentCondition:[".products"] },
+			{ href:"../css/product.css", urlCondition:["product"],
+					contentCondition:[".product"] }
+		]
+	}
+				</code></pre>
+			</section>
+			<section>
+				<h1>Sources:Options</h1>
+				<h2>Timeout</h2>
+				<p>number of milliseconds for downloading the sources</p>
+			</section>
+		</section>
+		<section id="controls">
+			<h1>Controls</h1>
+			<ul>
+				<li>footerLinks</li>
+				<li>fullSiteLink</li>
+				<li>menuBlock</li>
+				<li>menuCollapsible</li>
+				<li>pinchZoom</li>
+				<li>sidebar</li>
+				<li>simplePopup</li>
+				<li>slider</li>
+			</ul>
 		</section>
 	</div>
 
