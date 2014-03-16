@@ -35,6 +35,11 @@
 		.highlight-code {
 			color: #efef8f;
 		}
+
+		.highlight-word {
+			color: #FFDEAD;
+		}
+
 		.red {
 			color: #ff2c2d;
 		}
@@ -326,6 +331,24 @@
 				<h1>Sources:Options</h1>
 				<h2>Timeout</h2>
 				<p>number of milliseconds for downloading the sources</p>
+				<p>the timeout is exceeded, the library <a href="#/revert-changes">reverts changes</a></p>
+			</section>
+			<section>
+				<h1>Sources:Options</h1>
+				<h2>JS/CSS</h2>
+				<ul>
+					<li><b class="highlight-word">src/href:</b> location of the scripts or styles</li>
+					<li><b class="highlight-word">callback:</b> function is called after <a href="#/onReady">onReady</a> event is fired</li>
+					<li><b class="highlight-word">urlCondition:</b> RegEx to check a page url</li>
+					<li><b class="highlight-word">contentCondition:</b> selectors to check DOM</li>
+					<li><b class="highlight-word">uaCondition:</b> RegEx to check User Agent</li>
+					<li><b class="highlight-word">customCondition:</b> TODO</li>
+				</ul>
+			</section>
+			<section>
+				<h1>Conditions</h1>
+				<p>Arrays</p>
+				<p>any?? TODO</p>
 			</section>
 		</section>
 		<section id="controls">
