@@ -1,8 +1,4 @@
 body {
-	background: #36667E;
-}
-
-body {
 	background: #1c1e20;
 	background: -moz-radial-gradient(center, circle cover, #36667E 10%, #1c1e20 100%);
 	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(10%, #36667E), color-stop(100%, #1c1e20));
@@ -10,7 +6,19 @@ body {
 	background: -o-radial-gradient(center, circle cover, #36667E 10%, #1c1e20 100%);
 	background: -ms-radial-gradient(center, circle cover, #36667E 10%, #1c1e20 100%);
 	background: radial-gradient(center, circle cover, #36667E 10%, #1c1e20 100%);
-	background-color: #36667E; }
+	background-color: #36667E;
+}
+
+.logo {
+	position: absolute;
+	top: 2%;
+	left: 2%;
+	width: 432px;
+	height: 27px;
+	background: url(../img/logo.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
 
 .reveal h1 ,
 .reveal h2 {
