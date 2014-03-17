@@ -129,13 +129,13 @@
 			</section>
 		</section>
 		<section>
-			<h1>Collaboration</h1>
+			<section>
+				<h1>Collaboration</h1>
 
-			<p>
-				<img src="img/collaboration.jpg"/>
-			</p>
-		</section>
-		<section>
+				<p>
+					<img src="img/collaboration.jpg"/>
+				</p>
+			</section>
 			<section>
 				<h2>How can many people work</h2>
 				<h2>work on a responsive project together?</h2>
@@ -335,20 +335,58 @@
 			</section>
 			<section>
 				<h1>Sources:Options</h1>
-				<h2>JS/CSS</h2>
+				<h2>JS</h2>
 				<ul>
-					<li><b class="highlight-word">src/href:</b> location of the scripts or styles</li>
-					<li><b class="highlight-word">callback:</b> function is called after <a href="#/onReady">onReady</a> event is fired</li>
+					<li><b class="highlight-word">src:</b> location of the script</li>
+					<li><b class="highlight-word">callback:</b> a function is called after <a href="#/onReady">onReady</a> event is fired</li>
 					<li><b class="highlight-word">urlCondition:</b> RegEx to check a page url</li>
-					<li><b class="highlight-word">contentCondition:</b> selectors to check DOM</li>
+					<li><b class="highlight-word">contentCondition:</b> CSS selectors to check DOM</li>
 					<li><b class="highlight-word">uaCondition:</b> RegEx to check User Agent</li>
-					<li><b class="highlight-word">customCondition:</b> TODO</li>
+					<li><b class="highlight-word">customCondition:</b> a function with custom logic, returns boolean</li>
+				</ul>
+			</section>
+			<section>
+				<h1>Sources:Options</h1>
+				<h2>CSS</h2>
+				<ul>
+					<li><b class="highlight-word">href:</b> location of the scripts or styles</li>
+					<li><b class="highlight-word">id:</b> an unique indicator of the css file. <a href="#/css-link-id">Details</a> </li>
+					<li><b class="highlight-word">urlCondition:</b> RegEx to check a page url</li>
+					<li><b class="highlight-word">contentCondition:</b> CSS selectors to check DOM</li>
+					<li><b class="highlight-word">uaCondition:</b> RegEx to check User Agent</li>
+					<li><b class="highlight-word">customCondition:</b> a function with custom logic, returns boolean</li>
 				</ul>
 			</section>
 			<section>
 				<h1>Conditions</h1>
-				<p>Arrays</p>
-				<p>any?? TODO</p>
+				<p>All types of conditions are arrays, except <b class="highlight-word">customCondition</b></p>
+				<p>Condition is true, if any sub-condition in the array is true</p>
+				<p>Source is applied, if all conditions are true</p>
+			</section>
+			<section>
+				<h1>Conditions</h1>
+				<p>
+					The following source is applied, when:
+					<ul>
+						<li>it is opened on iPhone or iPad</li>
+						<li>and the url contains 'product'</li>
+						<li>and it's Retina</li>
+						<li>and it has an element with class 'someElement'</li>
+					</ul>
+				</p>
+					<pre><code>
+	var isRetina = function(){
+		return window.devicePixelRatio === 2;
+	};
+	//...
+	sources:{
+		js:[
+			{ src:"test.js", uaCondition:["iphone", "ipad"],
+				urlCondition:["product"], customCondition: isRetina,
+				contentCondition:[".someElement"], callback:"runTest" }
+		]
+	}
+					</code></pre>
 			</section>
 		</section>
 		<section id="controls">
