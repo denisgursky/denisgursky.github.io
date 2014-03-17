@@ -1,0 +1,69 @@
+.highlight-code {
+	color: #efef8f;
+}
+
+.highlight-word {
+	color: #FFDEAD;
+}
+
+.red {
+	color: #ff2c2d;
+}
+.green {
+	color: #17ff2e;
+}
+
+section {
+	text-align: left;
+}
+
+.control-container {
+	overflow: hidden;
+}
+
+.left-side {
+	float: left;
+	width: 50%;
+	box-sizing: border-box;
+	padding-right: 5%!important;
+}
+
+.right-side {
+	float: right;
+	width: 50%;
+	box-sizing: border-box;
+	padding-right: 5%!important;
+}
+
+.iphone {
+	width: 379px;
+	height: 743px;
+	background-image: url(../img/iPhone4s_White.png);
+	position: relative;
+
+	transform: scale(0.7);
+	-moz-transform: scale(0.7);
+	-webkit-transform:scale(0.7);
+	-o-transform: scale(0.7);
+	-ms-transform: scale(0.7);
+
+	transform-origin: 0 0;
+	-moz-transform-origin: 0 0;
+	-webkit-transform-origin: 0 0;
+	-o-transform-origin: 0 0;
+	-ms-transform-origin: 0 0;
+}
+
+.iphone .iframe-wrapper {
+	position: absolute;
+	top: 132px;
+	left: 32px;
+	height: 480px;
+	width: 320px;
+	background: #FFF;
+}
+
+.iphone iframe {
+	max-width: 100%!important;
+	max-height: 100%!important;
+}
