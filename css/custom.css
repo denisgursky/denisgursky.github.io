@@ -1,3 +1,53 @@
+body {
+	background: #36667E;
+}
+
+body {
+	background: #1c1e20;
+	background: -moz-radial-gradient(center, circle cover, #36667E 10%, #1c1e20 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(10%, #36667E), color-stop(100%, #1c1e20));
+	background: -webkit-radial-gradient(center, circle cover, #36667E 10%, #1c1e20 100%);
+	background: -o-radial-gradient(center, circle cover, #36667E 10%, #1c1e20 100%);
+	background: -ms-radial-gradient(center, circle cover, #36667E 10%, #1c1e20 100%);
+	background: radial-gradient(center, circle cover, #36667E 10%, #1c1e20 100%);
+	background-color: #36667E; }
+
+.reveal h1 ,
+.reveal h2 {
+	position: relative;
+}
+
+.reveal h1:before ,
+.reveal h2:before {
+	position: absolute;
+	display: block;
+	content: ' ';
+
+	left: -30px;
+
+	top: -5%;
+	bottom: -5%;
+
+	width: 5px;
+
+	background: #7FB060;
+}
+
+.reveal h1,
+.reveal h2 {
+	color: #FFF;
+	text-shadow: none;
+}
+
+.reveal a:not(.image) {
+	color: #71e9f4;
+}
+
+
+.reveal a:not(.image):hover {
+	opacity: 0.9;
+}
+
 .highlight-code {
 	color: #efef8f;
 }
