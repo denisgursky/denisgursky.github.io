@@ -350,7 +350,7 @@
 				<h2>CSS</h2>
 				<ul>
 					<li><b class="highlight-word">href:</b> location of the scripts or styles</li>
-					<li><b class="highlight-word">id:</b> an unique indicator of the css file. <a href="#/css-link-id">Details</a> </li>
+					<li><b class="highlight-word">id:</b> an unique indicator of the css file. <a href="#/css-id">Details</a> </li>
 					<li><b class="highlight-word">urlCondition:</b> RegEx to check a page url</li>
 					<li><b class="highlight-word">contentCondition:</b> CSS selectors to check DOM</li>
 					<li><b class="highlight-word">uaCondition:</b> RegEx to check User Agent</li>
@@ -387,6 +387,28 @@
 		]
 	}
 					</code></pre>
+			</section>
+			<section id="css-id">
+				<h1>CSS Id</h1>
+				<p>The library executes JS callbacks after the CSS file is loaded</p>
+				<p>
+					<code>clientMap.js</code>
+					<pre><code>
+	sources:{
+		css:[
+			{ href: "master.css", id: "master-css" }
+		]
+	}
+					</code></pre>
+				</p>
+				<p>
+					<code>master.css</code>
+					<pre><code>
+	link#master-css {
+	 	visibility: hidden;
+	}
+					</code></pre>
+				</p>
 			</section>
 		</section>
 		<section id="controls">
