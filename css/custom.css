@@ -17,7 +17,7 @@ a {
 	width: 1024px!important;
 }
 
-.responsivejs-image {
+.reveal section img {
 	border: none!important;
 	background: none!important;
 	box-shadow: none!important;
@@ -87,6 +87,69 @@ a {
 
 section {
 	text-align: left;
+}
+
+
+
+.start-preparing,
+.start-loading,
+.start-finishing {
+	display: block;
+	margin: 0 auto!important;
+	position: relative;
+	height: 453px;
+	background: url(../img/lifecycle/start.png) no-repeat;
+}
+
+.start-preparing {
+	width: 1191px;
+}
+
+.start-loading {
+	background-position-x: -1193px;
+	width: 1018px;
+}
+
+.start-finishing {
+	background-position-x: -2211px;
+	width: 970px;
+}
+
+.start-loading:before,
+.start-finishing:before,
+.start-preparing:after,
+.start-loading:after {
+	display: block;
+	content: ' ';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	background: url(../img/lifecycle/start.png) no-repeat;
+	opacity: 0.3;
+}
+
+.start-preparing:after {
+	background-position-x: -1191px;
+	width: 1018px;
+	right: -1018px;
+}
+
+.start-loading:before {
+	background-position-x: 0;
+	width: 1191px;
+	left: -1191px;
+}
+
+.start-loading:after {
+	background-position-x: -2211px;
+	width: 970px;
+	right: -970px;
+}
+
+.start-finishing:before {
+	background-position-x: -1193px;
+	width: 1018px;
+	left: -1018px;
 }
 
 .control-container {

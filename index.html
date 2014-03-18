@@ -388,18 +388,97 @@
 		</section>
 		<section>
 			<h1>Lifecycle</h1>
-			<p>//TODO the diagram below will be splitted into small steps</p>
+			<p>can be divided into 3 phases</p>
 			<p>
-				<img src="svg/lifecycle.svg"/>
+				<img src="img/lifecycle/full.png"/>
 			</p>
 		</section>
 		<section>
-			<h1>Lifecycle</h1>
-			<p>//TODO or this one</p>
-			<p>//not sure what direction will be better horizontal or vertical</p>
+			<section>
+				<h1>Library loaded</h1>
+				<p>
+					<img src="img/lifecycle/library.png"/>
+				</p>
+			</section>
+			<section>
+				<h1>Defaults</h1>
+				<p>
+					<pre><code>
+	var defaults = {
+		waitForJQueryTimeout: 30000,
+		viewport: "width=device-width, minimum-scale=1.0, maximum-scale=1.0,"
+				+ " initial-scale=1.0, user-scalable=no",
+		log: true,
+		jQueryLink: "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js",
+		jQueryMinSupportedVersion: "1.8",
+		formatDetection: false
+	};
+					</code></pre>
+				</p>
+			</section>
+		</section>
+		<section>
+			<h1>Responsify start</h1>
 			<p>
-				<img src="svg/lifecycle2.svg"/>
+				the following flow happens when <code>responsify.start({...})</code> method is called
 			</p>
+			<p>
+				<img src="img/lifecycle/start.png"/>
+			</p>
+		</section>
+		<section data-transition="linear" data-transition-speed="slow">
+			<section>
+				<h1>Preparing</h1>
+				<div class="start-preparing"></div>
+			</section>
+			<section>
+				<h1>Check Conditions</h1>
+				<p>//TODO coming soon</p>
+			</section>
+			<section>
+				<h1>Hide Content</h1>
+				<p>//TODO coming soon</p>
+			</section>
+			<section>
+				<h1>Add Format Detection</h1>
+				<p>//TODO coming soon</p>
+			</section>
+		</section>
+		<section data-transition="linear" data-transition-speed="slow">
+			<section>
+				<h1>Loading</h1>
+				<div class="start-loading"></div>
+			</section>
+			<section>
+				<h1>Resolve jQuery</h1>
+				<p>//TODO coming soon</p>
+			</section>
+			<section>
+				<h1>Sources</h1>
+				<p>//TODO coming soon</p>
+			</section>
+		</section>
+		<section data-transition="linear" data-transition-speed="slow">
+			<section>
+				<h1>Finishing</h1>
+				<div class="start-finishing"></div>
+			</section>
+			<section>
+				<h1>Attach Resize Handler</h1>
+				<p>//TODO coming soon</p>
+			</section>
+			<section>
+				<h1>Raise Ready</h1>
+				<p>//TODO coming soon</p>
+			</section>
+		</section>
+		<section>
+			<h1>Revert Changes</h1>
+			<p>//TODO coming soon</p>
+		</section>
+		<section>
+			<h1>Callbacks</h1>
+			<p>//TODO coming soon</p>
 		</section>
 		<section id="controls">
 			<section>
@@ -662,6 +741,7 @@
 				<div class="right-side">
 					<iframe id="docs-iframe" width="800" height="500" src="http://responsive-production.s3.amazonaws.com/docs/v1.3.0/index.html">
 					</iframe>
+				</div>
 			</section>
 		</section>
 	</div>
