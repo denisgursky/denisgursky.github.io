@@ -81,14 +81,14 @@ section {
 
 .left-side {
 	float: left;
-	width: 50%;
+	width: 40%;
 	box-sizing: border-box;
 	padding-right: 5%!important;
 }
 
 .right-side {
 	float: right;
-	width: 50%;
+	width: 60%;
 	box-sizing: border-box;
 	padding-right: 5%!important;
 }
@@ -150,13 +150,14 @@ section {
 	width: 379px;
 	height: 742px;
 	background-image: url(../img/iPhone4s_White.png);
+	background-repeat: no-repeat;
 	position: relative;
 
-	transform: scale(0.7);
-	-moz-transform: scale(0.7);
-	-webkit-transform:scale(0.7);
-	-o-transform: scale(0.7);
-	-ms-transform: scale(0.7);
+	transform: scale(0.68);
+	-moz-transform: scale(0.68);
+	-webkit-transform:scale(0.68);
+	-o-transform: scale(0.68);
+	-ms-transform: scale(0.68);
 
 	transform-origin: 0 0;
 	-moz-transform-origin: 0 0;
@@ -178,13 +179,14 @@ section {
 	height: 968px;
 	width: 1255px;
 	background-image: url(../img/iPad_White.png);
+	background-repeat: no-repeat;
 	position: relative;
 
-	transform: scale(0.38);
-	-moz-transform: scale(0.38);
-	-webkit-transform:scale(0.38);
-	-o-transform: scale(0.38);
-	-ms-transform: scale(0.38);
+	transform: scale(0.45);
+	-moz-transform: scale(0.45);
+	-webkit-transform:scale(0.45);
+	-o-transform: scale(0.45);
+	-ms-transform: scale(0.45);
 
 	transform-origin: 0 0;
 	-moz-transform-origin: 0 0;
@@ -206,13 +208,14 @@ section {
 	height: 1268px;
 	width: 1606px;
 	background-image: url(../img/desktop.png);
+	background-repeat: no-repeat;
 	position: relative;
 
-	transform: scale(0.29);
-	-moz-transform: scale(0.29);
-	-webkit-transform:scale(0.29);
-	-o-transform: scale(0.29);
-	-ms-transform: scale(0.29);
+	transform: scale(0.36);
+	-moz-transform: scale(0.36);
+	-webkit-transform:scale(0.36);
+	-o-transform: scale(0.36);
+	-ms-transform: scale(0.36);
 
 	transform-origin: 0 0;
 	-moz-transform-origin: 0 0;
