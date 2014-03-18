@@ -93,9 +93,62 @@ section {
 	padding-right: 5%!important;
 }
 
-.iphone {
+.buttons {
+	margin-bottom: 10px!important;
+}
+
+.btn {
+	display: inline-block;
+	padding: 12px 15px 10px;
+	font-size: 20px;
+	line-height: 1em;
+	min-height: 39px;
+	-webkit-border-radius: 3px;
+	-webkit-background-clip: padding-box;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background: #86b73d;
+	border: none;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.icon-mobile {
+	display: inline-block;
+	background: url(../img/icon-mobile.png) no-repeat;
+	background-size: contain;
+	width: 9px;
+	height: 20px;
+	margin-left: 5px!important;
+}
+
+.icon-tablet {
+	display: inline-block;
+	background: url(../img/icon-tablet.png) no-repeat;
+	background-size: contain;
+	width: 14px;
+	height: 20px;
+	margin-left: 5px!important;
+}
+
+.icon-desktop {
+	display: inline-block;
+	background: url(../img/icon-desktop.png) no-repeat;
+	background-size: contain;
+	width: 25px;
+	height: 20px;
+	margin-left: 0px!important;
+}
+
+
+.device iframe {
+	max-width: 100%!important;
+	max-height: 100%!important;
+}
+
+.mobile {
 	width: 379px;
-	height: 743px;
+	height: 742px;
 	background-image: url(../img/iPhone4s_White.png);
 	position: relative;
 
@@ -112,7 +165,7 @@ section {
 	-ms-transform-origin: 0 0;
 }
 
-.iphone .iframe-wrapper {
+.mobile .iframe-wrapper {
 	position: absolute;
 	top: 132px;
 	left: 32px;
@@ -121,7 +174,58 @@ section {
 	background: #FFF;
 }
 
-.iphone iframe {
-	max-width: 100%!important;
-	max-height: 100%!important;
+.tablet {
+	height: 968px;
+	width: 1255px;
+	background-image: url(../img/iPad_White.png);
+	position: relative;
+
+	transform: scale(0.38);
+	-moz-transform: scale(0.38);
+	-webkit-transform:scale(0.38);
+	-o-transform: scale(0.38);
+	-ms-transform: scale(0.38);
+
+	transform-origin: 0 0;
+	-moz-transform-origin: 0 0;
+	-webkit-transform-origin: 0 0;
+	-o-transform-origin: 0 0;
+	-ms-transform-origin: 0 0;
+}
+
+.tablet .iframe-wrapper {
+	position: absolute;
+	left: 116px;
+	top: 99px;
+	width: 1024px;
+	height: 768px;
+	background: #FFF;
+}
+
+.desktop {
+	height: 1268px;
+	width: 1606px;
+	background-image: url(../img/desktop.png);
+	position: relative;
+
+	transform: scale(0.29);
+	-moz-transform: scale(0.29);
+	-webkit-transform:scale(0.29);
+	-o-transform: scale(0.29);
+	-ms-transform: scale(0.29);
+
+	transform-origin: 0 0;
+	-moz-transform-origin: 0 0;
+	-webkit-transform-origin: 0 0;
+	-o-transform-origin: 0 0;
+	-ms-transform-origin: 0 0;
+}
+
+.desktop .iframe-wrapper {
+	position: absolute;
+	left: 87px;
+	top: 73px;
+	width: 1432px;
+	height: 800px;
+	background: #FFF;
 }
