@@ -13,6 +13,16 @@ a {
 	cursor: pointer;
 }
 
+.slides {
+	width: 1024px!important;
+}
+
+.responsivejs-image {
+	border: none!important;
+	background: none!important;
+	box-shadow: none!important;
+}
+
 .logo {
 	position: absolute;
 	top: 2%;
@@ -94,7 +104,6 @@ section {
 	float: right;
 	width: 60%;
 	box-sizing: border-box;
-	padding-right: 5%!important;
 }
 
 .buttons {
@@ -148,6 +157,7 @@ section {
 .reveal iframe {
 	max-width: 100%!important;
 	max-height: 100%!important;
+	overflow: hidden;
 }
 
 .mobile {
@@ -186,11 +196,11 @@ section {
 	background-repeat: no-repeat;
 	position: relative;
 
-	transform: scale(0.45);
-	-moz-transform: scale(0.45);
-	-webkit-transform:scale(0.45);
-	-o-transform: scale(0.45);
-	-ms-transform: scale(0.45);
+	transform: scale(0.48);
+	-moz-transform: scale(0.48);
+	-webkit-transform:scale(0.48);
+	-o-transform: scale(0.48);
+	-ms-transform: scale(0.48);
 
 	transform-origin: 0 0;
 	-moz-transform-origin: 0 0;
@@ -215,11 +225,11 @@ section {
 	background-repeat: no-repeat;
 	position: relative;
 
-	transform: scale(0.36);
-	-moz-transform: scale(0.36);
-	-webkit-transform:scale(0.36);
-	-o-transform: scale(0.36);
-	-ms-transform: scale(0.36);
+	transform: scale(0.38);
+	-moz-transform: scale(0.38);
+	-webkit-transform:scale(0.38);
+	-o-transform: scale(0.38);
+	-ms-transform: scale(0.38);
 
 	transform-origin: 0 0;
 	-moz-transform-origin: 0 0;
