@@ -37,4 +37,13 @@
 			}
 		}, false);
 	}
+
+
+	var docsIframe = document.querySelector('#docs-iframe');
+
+	document.querySelector('.docs-overview').addEventListener('click', function(e){
+		if(e.target.attributes['data-docurl']) {
+			docsIframe.src = e.target.attributes['data-docurl'].value;
+		}
+	}, false);
 })();

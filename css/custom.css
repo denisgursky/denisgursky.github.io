@@ -1,12 +1,16 @@
 body {
 	background: #1c1e20;
-	background: -moz-radial-gradient(center, circle cover, #B5E1F1 0%, #36667E 100%);
-	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #B5E1F1), color-stop(100%, #36667E));
-	background: -webkit-radial-gradient(center, circle cover, #B5E1F1 0%, #36667E 100%);
-	background: -o-radial-gradient(center, circle cover, #B5E1F1 0%, #36667E 100%);
-	background: -ms-radial-gradient(center, circle cover, #B5E1F1 0%, #36667E 100%);
-	background: radial-gradient(center, circle cover, #B5E1F1 0%, #36667E 100%);
+	background: -moz-radial-gradient(bottom center, circle cover, #B5E1F1 0%, #36667E 100%);
+	background: -webkit-gradient(radial, ctop center, 0px, center center, 100%, color-stop(0%, #B5E1F1), color-stop(100%, #36667E));
+	background: -webkit-radial-gradient(bottom center, circle cover, #B5E1F1 0%, #36667E 100%);
+	background: -o-radial-gradient(bottom center, circle cover, #B5E1F1 0%, #36667E 100%);
+	background: -ms-radial-gradient(bottom center, circle cover, #B5E1F1 0%, #36667E 100%);
+	background: radial-gradient(bottom center, circle cover, #B5E1F1 0%, #36667E 100%);
 	background-color: #36667E;
+}
+
+a {
+	cursor: pointer;
 }
 
 .logo {
@@ -141,7 +145,7 @@ section {
 }
 
 
-.device iframe {
+.reveal iframe {
 	max-width: 100%!important;
 	max-height: 100%!important;
 }
