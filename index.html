@@ -47,11 +47,7 @@
 			<section>
 				<h2>How to include the library?</h2>
 
-				<p class="">Insert the library files:</p>
-				<ul>
-					<li>CSS: <code class="highlight-code">5thfinger.responsive.css</code></li>
-					<li>JS: <code class="highlight-code">5thfinger.responsive.js</code></li>
-				</ul>
+				<p class="">Insert the library <code class="highlight-code">5thfinger.responsive.js</code></p>
 				<p class="fragment roll-in">Insert an inline script, that begins responsifying</p>
 				<p class="fragment roll-in"><a class="navigate-down">Example</a></p>
 			</section>
@@ -61,9 +57,6 @@
 				<p>To minimize the impact on your site,</p>
 				<p>place the tag as <b>close as possible</b> the <code class="highlight-code">&lt;/head&gt;</code> tag.</p>
 				<pre><code>
-	&lt;link href="//your-hostname/5thfinger.responsive.css"
-			rel="stylesheet" type="text/css"/&gt;
-
 	&lt;script src="//your-hostname//5thfinger.responsive.js"
 			type="text/javascript">&lt;/script&gt;
 
@@ -83,9 +76,6 @@
 	&lt;head&gt;
 
 		<!--here your scripts, styles, whatever-->
-
-		&lt;link href="//your-hostname/5thfinger.responsive.css"
-				rel="stylesheet" type="text/css"/&gt;
 
 		&lt;script src="//your-hostname//5thfinger.responsive.js"
 				type="text/javascript">&lt;/script&gt;
@@ -561,8 +551,13 @@
 						<li>downloading JS source</li>
 						<li>downloading CSS source</li>
 						<li>resolving jQuery</li>
+						<li>checking CSS and JS in onReady</li>
 					</ul>
 				</p>
+			</section>
+			<section>
+				<h1>Production version</h1>
+				<p>//TODO explain the flow when CSS and JS minified</p>
 			</section>
 		</section>
 		<section data-transition="linear" data-transition-speed="slow">
