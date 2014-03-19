@@ -571,17 +571,27 @@
 				<div class="start-finishing"></div>
 			</section>
 			<section>
-				<h1>Attach Resize Handler</h1>
-				<p>//TODO coming soon</p>
+				<h1>Resize Handler</h1>
+				<p>memories the current screen width</p>
+				<p>triggers <code class="highlight-code">resize</code> event</p>
+				<p>triggers <code class="highlight-code">boundChange</code> event</p>
 			</section>
 			<section>
 				<h1>Raise Ready</h1>
-				<p>//TODO coming soon</p>
+				<p>triggers <code class="highlight-code">ready</code> event</p>
+				<p>adds CSS sources to the page</p>
+				<p>
+					executes JS callbacks
+					<ul>
+						<li>if a callback throws an exception, the next callback won't be executed</li>
+					</ul>
+				</p>
 			</section>
 		</section>
 		<section>
 			<h1>Callbacks</h1>
-			<p>//TODO coming soon</p>
+			<p>a callback is executed one time</p>
+			<p>setTimeout's, setInterval's, event handlers live until the next page loading</p>
 		</section>
 		<section id="controls">
 			<section>

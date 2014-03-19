@@ -71,7 +71,8 @@ a {
 }
 
 .highlight-code {
-	color: #efef8f;
+	color: #ECEEB5;
+	font-weight: bold!important;
 }
 
 .highlight-word {
@@ -79,10 +80,10 @@ a {
 }
 
 .red {
-	color: #ff2c2d;
+	color: #E16A5C;
 }
 .green {
-	color: #17ff2e;
+	color: #7FB060;
 }
 
 section {
