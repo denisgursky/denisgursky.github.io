@@ -49,8 +49,8 @@
 
 				<p class="">Insert the library files:</p>
 				<ul>
-					<li>CSS: <code>5thfinger.responsive.css</code></li>
-					<li>JS: <code>5thfinger.responsive.js</code></li>
+					<li>CSS: <code class="highlight-code">5thfinger.responsive.css</code></li>
+					<li>JS: <code class="highlight-code">5thfinger.responsive.js</code></li>
 				</ul>
 				<p class="fragment roll-in">Insert an inline script, that begins responsifying</p>
 				<p class="fragment roll-in"><a class="navigate-down">Example</a></p>
@@ -136,13 +136,13 @@
 					Proxy server switches
 				</h2>
 				<p>
-					<code>http://qa.site.com/js/clientMap.js</code>
+					<code class="highlight-code">http://qa.site.com/js/clientMap.js</code>
 				</p>
 				<p>
 					to
 				</p>
 				<p>
-					<code>http://localhost/js/clientMap.js</code>
+					<code class="highlight-code">http://localhost/js/clientMap.js</code>
 				</p>
 			</section>
 			<section>
@@ -154,7 +154,7 @@
 			<section>
 				<h2>Changing the inline script</h2>
 				<p>Default environment is called 'qa'</p>
-				<p><code>javascript: RD.env('ENV_NAME')</code> in the address bar</p>
+				<p><code class="highlight-code">javascript: RD.env('ENV_NAME')</code> in the address bar</p>
 				<p>to load other environment</p>
 					<pre><code>
 	&lt;script type="text/javascript"&gt;
@@ -234,7 +234,7 @@
 					Default value:
 				</p>
 				<p>
-					<code>width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no</code>
+					<code class="highlight-code">width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no</code>
 				</p>
 			</section>
 			<section>
@@ -367,7 +367,7 @@
 				<h1>CSS Id</h1>
 				<p>The library executes JS callbacks after the CSS file is loaded</p>
 				<p>
-					<code>clientMap.js</code>
+					<code class="highlight-code">clientMap.js</code>
 					<pre><code>
 	sources:{
 		css:[
@@ -377,7 +377,7 @@
 					</code></pre>
 				</p>
 				<p>
-					<code>master.css</code>
+					<code class="highlight-code">master.css</code>
 					<pre><code>
 	link#master-css {
 	 	visibility: hidden;
@@ -418,13 +418,73 @@
 			</section>
 		</section>
 		<section>
-			<h1>Responsify start</h1>
-			<p>
-				the following flow happens when <code>responsify.start({...})</code> method is called
-			</p>
-			<p>
-				<img src="img/lifecycle/start.png"/>
-			</p>
+			<section>
+				<h1>Responsify start</h1>
+				<p>
+					the following flow happens when <code class="highlight-code">responsify.start({...})</code> method is called
+				</p>
+				<p>
+					<img src="img/lifecycle/start.png"/>
+				</p>
+			</section>
+			<section>
+				<h1>Example</h1>
+				<p>
+					<pre><code>
+	responsify.start({
+		clientMapSrc: "//your-hostname/clientMap.js"
+		remoteDebug: false,
+		mobileOnly: true,
+		jQueryObject: "jQuery",
+		formatDetection: false,
+		log: true
+	});
+					</code></pre>
+				</p>
+			</section>
+			<section>
+				<h1>clientMapSrc</h1>
+				<p>Required</p>
+				<p>Location of the clientmap file</p>
+			</section>
+			<section>
+				<h1>remoteDebug</h1>
+				<p>Optional. Default: <code class="highlight-code">false</code></p>
+				<p>Based on <a href="http://jsconsole.com" target="_blank">jsconsole</a></p>
+				<p>Useful for simple debugging, logging on a mobile device</p>
+			</section>
+			<section>
+				<h1>mobileOnly</h1>
+				<p>Optional. Default: <code class="highlight-code">false</code></p>
+				<p>Applies the responsive code only for touch devices</p>
+			</section>
+			<section>
+				<h1>jQueryObject</h1>
+				<p>Optional. Default: <code class="highlight-code">"jQuery"</code></p>
+				<p>Declares what object is used as jQuery</p>
+				<p>More <a href="#/resolve-jquery">details</a> about jQuery</p>
+			</section>
+			<section>
+				<h1>jQueryLink</h1>
+				<p>Optional. Default: <code class="highlight-code">"//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"</code></p>
+				<p>Location of jQuery, that would be used</p>
+				<p>More <a href="#/resolve-jquery">details</a> about jQuery</p>
+			</section>
+			<section>
+				<h1>formatDetection</h1>
+				<p>Optional. Default: <code class="highlight-code">false</code></p>
+				<p>Adds meta tag <a href="http://www.html-5.com/metatags/format-detection-meta-tag.html" target="_blank">format-detection</a></p>
+				<p>
+					<code class="highlight-code">
+						&lt;meta name="format-detection" content="telephone=no"/&gt;
+					</code>
+				</p>
+			</section>
+			<section>
+				<h1>log</h1>
+				<p>Optional. Default: <code class="highlight-code">true</code></p>
+				<p>Writes logs into the browser console</p>
+			</section>
 		</section>
 		<section data-transition="linear" data-transition-speed="slow">
 			<section>
@@ -432,12 +492,35 @@
 				<div class="start-preparing"></div>
 			</section>
 			<section>
-				<h1>Check Conditions</h1>
-				<p>//TODO coming soon</p>
+				<h1>Checking</h1>
+				<p>
+					<ul>
+						<li>is it started already?</li>
+						<li>does the browser support <code class="highlight-code">addEventListener</code></li>
+						<li>is <code class="highlight-code">mobileOnly</code> enabled?</li>
+						<li>is <code class="highlight-code">fullSite</code> enabled?</li>
+					</ul>
+				</p>
 			</section>
 			<section>
 				<h1>Hide Content</h1>
-				<p>//TODO coming soon</p>
+				<p>adds the code below to the <code class="highlight-code">&lt;head&gt;</code></p>
+				<p>
+					<pre><code>
+	&lt;style id="RDhideAll" type="text/css"&gt;
+		html, body {
+			background:none;
+		}
+
+		body>* {
+			opacity:0;
+			filter:alpha(opacity=0);
+			position:absolute;
+			left:-3000px;
+		}
+	&lt;style&gt;
+					</code></pre>
+				</p>
 			</section>
 			<section>
 				<h1>Add Format Detection</h1>
@@ -449,7 +532,7 @@
 				<h1>Loading</h1>
 				<div class="start-loading"></div>
 			</section>
-			<section>
+			<section id="resolve-jquery">
 				<h1>Resolve jQuery</h1>
 				<p>//TODO coming soon</p>
 			</section>
