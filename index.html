@@ -36,11 +36,17 @@
 	<div class="slides">
 		<section>
 			<h1>ResponsiveJS</h1>
+			<aside class="notes">
+				Hello, I'm going to talk about ReponsiveJS framework
+			</aside>
 		</section>
 		<section>
 			<h1>ResponsiveJS</h1>
 			<p>ResponsiveJS is our highspeed, easy-to-implement JavaScript framework that transforms your desktop website into a Responsive Design website, optimized across screen sizes for mobile and tablet.</p>
 			<p><img class="responsivejs-image" src="img/responsivejs.png"/></p>
+			<aside class="notes">
+				The idea is simple, we're writing CSS and JS code to make a site looks well on devices
+			</aside>
 		</section>
 		<section>
 			<section>
@@ -48,6 +54,9 @@
 
 				<p class="">Insert the library <code class="highlight-code">5thfinger.responsive.js</code></p>
 				<p class="">Insert an inline script, that begins responsifying</p>
+				<aside class="notes">
+					To make it work you need to include two things the library script and an inline script, that begins the responsifying process
+				</aside>
 			</section>
 			<section>
 				<h2>Simple including</h2>
@@ -66,6 +75,9 @@
 		});
 	&lt;/script&gt;
 				</code></pre>
+				<aside class="notes">
+					Here's an example. Read the slide.
+				</aside>
 			</section>
 			<section>
 				<h2>Full Example</h2>
@@ -86,12 +98,18 @@
 	&lt;/head&gt;
 	&lt;body&gt;Here is your page&lt;/body&gt;
 &lt;/html&gt;</code></pre>
+				<aside class="notes">
+					It's is the same example, just to show you how it looks in the page markup
+				</aside>
 			</section>
 		</section>
 		<section>
 			<section>
 				<h1>clientMap.js</h1>
 				<p>Configuration object to setup project settings before executing client scripts</p>
+				<aside class="notes">
+					It's an object that allows setup setting in a declarative way
+				</aside>
 			</section>
 			<section>
 				<h1>Example</h1>
@@ -111,11 +129,14 @@
 		}
 	};
 				</code></pre>
+				<aside class="notes">
+					This is how the client map usually looks. Let's consider we can do here and all available properties in detail
+				</aside>
 			</section>
 			<section>
 				<h1>Viewport</h1>
 				<p>
-					Optional property, allows you to set your value for the viewport meta tag.
+					Allows you to set your value for the viewport meta tag.
 				</p>
 				<p>
 					Default value:
@@ -123,6 +144,10 @@
 				<p>
 					<code class="highlight-code">width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no</code>
 				</p>
+				<aside class="notes">
+					Using the viewport meta tag allows to control layout on mobile browsers.
+					You can define what viewport the library adds to the page. Here's default viewport on the slide
+				</aside>
 			</section>
 			<section>
 				<h1>Bounds</h1>
@@ -136,6 +161,9 @@
 		desktop: { minWidth: 1281 }
 	}
 				</code></pre>
+				<aside class="notes">
+					Read the slide. You can define so many bounds, how much you need
+				</aside>
 			</section>
 			<section>
 				<h1>Bounds</h1>
@@ -152,6 +180,13 @@
 	//element2 is visible for all bounds except phone
 	RD.boundManager.applyForOther($(".element2-selector"), [bounds.phone]);
 				</code></pre>
+				<aside class="notes">
+					Bounds abstraction is a good way to separate different behaviors for different screens widths.
+					And provide the best UI/UX for any devices.
+					The library internally creates some media queries to support this feature, and appends them as a style tag to the page.
+					Read the example.
+					The library provides API that allows you detect the current bound for example. And it fires an event when bound is changed.
+				</aside>
 			</section>
 			<section>
 				<h1>Controls</h1>
@@ -163,6 +198,11 @@
 		"menuBlock"
 	]
 				</code></pre>
+				<aside class="notes">
+					The library provides a set of controls. You can use them to build UI/UX very quickly.
+					Here you define which of the them you'd like to use, and controls will be loaded asynchronously.
+					We'll consider the full list later on.
+				</aside>
 			</section>
 			<section>
 				<h1>Sources</h1>
@@ -188,12 +228,21 @@
 		]
 	}
 				</code></pre>
+				<aside class="notes">
+					Read the slide.
+					It's a huge object, that has a lot of options. Let's look at them.
+				</aside>
 			</section>
 			<section>
 				<h1>Sources:Options</h1>
 				<h2>Timeout</h2>
 				<p>number of milliseconds for downloading the sources</p>
 				<p>the timeout is exceeded, the library <a href="#/revert-changes">reverts changes</a></p>
+				<aside class="notes">
+					This first option is timeout. Read the slides.
+					I'll tell you what reverting changes really means in deep a bit later,
+					but for now it's enough to know that it rollbacks some changes the library already did
+				</aside>
 			</section>
 			<section>
 				<h1>Sources:Options</h1>
@@ -206,6 +255,11 @@
 					<li><b class="highlight-word">uaCondition:</b> RegEx to check User Agent</li>
 					<li><b class="highlight-word">customCondition:</b> a function with custom logic, returns boolean</li>
 				</ul>
+				<aside class="notes">
+					The JS property declares what scripts will be used to make the site looks well.
+					It's an array, let's look at what attributes a single item may have.
+					Read the slide.
+				</aside>
 			</section>
 			<section>
 				<h1>Sources:Options</h1>
@@ -218,12 +272,23 @@
 					<li><b class="highlight-word">uaCondition:</b> RegEx to check User Agent</li>
 					<li><b class="highlight-word">customCondition:</b> a function with custom logic, returns boolean</li>
 				</ul>
+				<aside class="notes">
+					The CSS property declares what styles will be applied to the site.
+					It's an array too, some attributes are the same, but some are different.
+					Read the slide.
+				</aside>
 			</section>
 			<section>
 				<h1>Conditions</h1>
 				<p>All types of conditions are arrays, except <b class="highlight-word">customCondition</b></p>
 				<p>Condition is true, if any sub-condition in the array is true</p>
 				<p>Source is applied, if all conditions are true</p>
+				<aside class="notes">
+					Conditions say to the library can a source be applied to the page or not.
+					All types of conditions are arrays, except customCondition.
+					Let's call an item in a condition array - sub-condition.
+					Read the slide.
+				</aside>
 			</section>
 			<section>
 				<h1>Conditions</h1>
@@ -249,6 +314,10 @@
 		]
 	}
 					</code></pre>
+				<aside class="notes">
+					Here's an example.
+					Read the slide.
+				</aside>
 			</section>
 			<section id="css-id">
 				<h1>CSS Id</h1>
@@ -271,6 +340,18 @@
 	}
 					</code></pre>
 				</p>
+				<aside class="notes">
+					Sometimes you need to execute some code after styles are loaded and applied.
+					Usually, it happens when you need to get a size of an element and then use it some how.
+					The styles can affect on this size, you want to be sure that they are already applied.
+					Bad news. Browsers don't provide onload event for the link tag as they do for the script tag.
+					So there's no way on the box to know exactly when a CSS file is loaded.
+					Good news. There's a workaround in the library that works across all browsers.
+					Just two steps:
+						1) add an unique id attribute
+						2) add this css rule in the CSS file
+					All javascript callback will be executed after the CSS file is loaded.
+				</aside>
 			</section>
 		</section>
 		<section>
@@ -279,6 +360,12 @@
 			<p>
 				<img src="img/lifecycle/full.png"/>
 			</p>
+			<aside class="notes">
+				Read the slide.
+				First happens when the browser loaded the library.
+				Second when responsify.start method is called
+				Third when callbacks are executed
+			</aside>
 		</section>
 		<section>
 			<section>
@@ -286,6 +373,11 @@
 				<p>
 					<img src="img/lifecycle/library.png"/>
 				</p>
+				<aside class="notes">
+					Just 3 things happens here.
+					It initializes some default values, then initializes helpers that used internally,
+					and adds the viewport.
+				</aside>
 			</section>
 			<section>
 				<h1>Defaults</h1>
@@ -302,6 +394,9 @@
 	};
 					</code></pre>
 				</p>
+				<aside class="notes">
+					It's an object that used internally, it contains default values.
+				</aside>
 			</section>
 		</section>
 		<section>
@@ -313,6 +408,10 @@
 				<p>
 					<img src="img/lifecycle/start.png"/>
 				</p>
+				<aside class="notes">
+					A lot of things happens in background when the method is called.
+					In short, you pass some settings and it starts the responsifying process. But we're going to talk about in details.
+				</aside>
 			</section>
 			<section>
 				<h1>Example</h1>
@@ -328,34 +427,59 @@
 	});
 					</code></pre>
 				</p>
+				<aside class="notes">
+					As you probably remember such code is placed in the inline script below the library script.
+					Now I'll show what properties we have and may change here.
+				</aside>
 			</section>
 			<section>
 				<h1>clientMapSrc</h1>
 				<p>Required</p>
 				<p>Location of the clientmap file</p>
+				<aside class="notes">
+					It's the only one required property. Declares where the clientmap file is.
+				</aside>
 			</section>
 			<section>
 				<h1>remoteDebug</h1>
 				<p>Optional. Default: <code class="highlight-code">false</code></p>
 				<p>Based on <a href="http://jsconsole.com" target="_blank">jsconsole</a></p>
 				<p>Useful for simple debugging, logging on a mobile device</p>
+				<aside class="notes">
+					Read the slide.
+					Internally, it adds a script to the page. The script is a bridge between your page and jsconsole.
+					But it's much better to use native tools to debug.
+				</aside>
 			</section>
 			<section>
 				<h1>mobileOnly</h1>
 				<p>Optional. Default: <code class="highlight-code">false</code></p>
 				<p>Applies the responsive code only for touch devices</p>
+				<aside class="notes">
+					There's a simple condition that check touch. It check ontouchstart property in the window object.
+					So if you'll open the page on a laptop with touch screen you may see the responsive version of the page.
+				</aside>
 			</section>
 			<section>
 				<h1>jQueryObject</h1>
 				<p>Optional. Default: <code class="highlight-code">"jQuery"</code></p>
 				<p>Declares what object is used as jQuery</p>
 				<p>More <a href="#/resolve-jquery">details</a> about jQuery</p>
+				<aside class="notes">
+					If you have jQuery that has a different name. By default, it jQuery in lower camelcase.
+					You may provide the different name, it must be a string. The library tries to take it from the window object by the given name.
+					If jQuery is loaded asynchronously for example via RequireJS or any other module loader,
+					in this case library checks jQuery availability 30 seconds and then fails.
+				</aside>
 			</section>
 			<section>
 				<h1>jQueryLink</h1>
 				<p>Optional. Default: <code class="highlight-code">"//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"</code></p>
 				<p>Location of jQuery, that would be used</p>
 				<p>More <a href="#/resolve-jquery">details</a> about jQuery</p>
+				<aside class="notes">
+					You may provide a link to load jQuery, be default it refers to the Google CDN.
+				</aside>
 			</section>
 			<section>
 				<h1>formatDetection</h1>
@@ -366,17 +490,32 @@
 						&lt;meta name="format-detection" content="telephone=no"/&gt;
 					</code>
 				</p>
+				<aside class="notes">
+					By default, phone numbers look like hypertext links, you can tap to call a number.
+					This options allows you set off this, and phone numbers will look like on desktop.
+				</aside>
 			</section>
 			<section>
 				<h1>log</h1>
 				<p>Optional. Default: <code class="highlight-code">true</code></p>
 				<p>Writes logs into the browser console</p>
+				<aside class="notes">
+					Read the slide.
+				</aside>
 			</section>
 		</section>
 		<section data-transition="linear" data-transition-speed="slow">
 			<section>
 				<h1>Preparing</h1>
 				<div class="start-preparing"></div>
+				<aside class="notes">
+					It starts from simple checking, the next slide tells what is this checking.
+					If the checking is not passed, the library triggers 'cancelStart' event.
+					If it's ok we  move ahead, again init some helpers,
+					then hide the content,
+					then check the format detection options, and if it's true we add the meta tag.
+					Now I'll show you what these blue items on the diagrams mean do.
+				</aside>
 			</section>
 			<section>
 				<h1>Checking</h1>
@@ -388,10 +527,14 @@
 						<li>is <code class="highlight-code">fullSite</code> enabled?</li>
 					</ul>
 				</p>
+				<aside class="notes">
+					Read the slide.
+					If all of these true, the checking is passed.
+				</aside>
 			</section>
 			<section>
 				<h1>Hide Content</h1>
-				<p>adds the code below to the <code class="highlight-code">&lt;head&gt;</code></p>
+				<p>The library adds the code below to the <code class="highlight-code">&lt;head&gt;</code></p>
 				<p>
 					<pre><code>
 	&lt;style id="RDhideAll" type="text/css"&gt;
@@ -408,49 +551,82 @@
 	&lt;style&gt;
 					</code></pre>
 				</p>
+				<aside class="notes">
+					The library adds this styles to the head tag.
+					They remove background on body and html elements and move all body's child elements far away to the left
+				</aside>
 			</section>
 		</section>
 		<section data-transition="linear" data-transition-speed="slow">
 			<section>
 				<h1>Loading</h1>
 				<div class="start-loading"></div>
+				<aside class="notes">
+					It's most difficult and long part of the process.
+					Resolving jQuery and downloading the clientmap go in parallel.
+					Once jQuery is resolved, it waits other things.
+					When the clientmap is loaded, it loads JS & CSS sources and controls in parallel.
+					Of course, controls loading happens only if you use them, and you declared it in the clientmap object.
+					Let's take a look at resolving jQuery and other things happens there.
+				</aside>
 			</section>
 			<section id="resolve-jquery">
 				<h1>Resolve jQuery</h1>
 				<p><img src="img/lifecycle/resolve-jquery.png"/></p>
+				<aside class="notes">
+					It tries to use jQueryObject property, then jQueryLink, then take window.jQuery, then load from CDN.
+					All of these steps check the jQuery version, the minimum supported version is 1.8
+					When any of these steps got jQuery with version greater or equal 1.8, jQuery is resolved and we go ahead.
+					If after all of them the library didn't get jQuery, it reverts changes.
+				</aside>
 			</section>
 			<section>
 				<h1>Sources</h1>
 				<p><img src="img/lifecycle/sources.png"/></p>
+				<aside class="notes">
+					If of all it checks that clientMapSrc is provided.
+					Then creates media queries for chosen bounds,
+					then filter sources by given conditions, load CSS and JS in parallel.
+					Loading CSS means that the library adds a link tag, so the styles are applied asynchronously
+					and it doesn't what when all files are loaded.
+				</aside>
 			</section>
 			<section id="revert-changes">
 				<h1>Revert Changes</h1>
 				<h2>What happens?</h2>
 				<p>
 					The Library removes
-					<ul>
-						<li>Viewport</li>
-						<li>Format Detection</li>
-						<li>Sources</li>
-					</ul>
+				<ul>
+					<li>Viewport</li>
+					<li>Format Detection</li>
+					<li>Sources</li>
+				</ul>
 				</p>
 				<p>
 					and shows content
 				</p>
+				<aside class="notes">
+					Read the slide.
+				</aside>
 			</section>
 			<section>
 				<h1>Revert Changes</h1>
 				<h2>When happens?</h2>
 				<p>when any from the list below fails
-					<ul>
-						<li>initializing remote debugging</li>
-						<li>downloading the clientmap</li>
-						<li>downloading JS source</li>
-						<li>downloading CSS source</li>
-						<li>resolving jQuery</li>
-						<li>checking CSS and JS in onReady</li>
-					</ul>
+				<ul>
+					<li>initializing remote debugging</li>
+					<li>downloading the clientmap</li>
+					<li>downloading JS source</li>
+					<li>downloading CSS source</li>
+					<li>resolving jQuery</li>
+					<li>checking CSS and JS in onReady</li>
+				</ul>
 				</p>
+				<aside class="notes">
+					There many cases when it may happens.
+					Read the slide.
+					The last item related to the production version and I'm going to talk about it next.
+				</aside>
 			</section>
 			<section>
 				<h1>Production version</h1>
@@ -463,9 +639,16 @@
 				<p>
 					Sources are not loaded separately
 				</p>
-				<p>
-
-				</p>
+				<aside class="notes">
+					Users don't like to wait while the site loads. And our goal here is decreasing the loading time.
+					The popular solution is decreasing amount of additional resources like scripts, css files, images, whatever which is loaded separately.
+					And of course decreasing file sizes.
+					Typical optimization for ResponsiveJS is
+						1) converting background images to base64 and include them in the css files
+						2) minifying CSS and JS
+						3) concatenate all of them in a single file
+					So in the end we have just a single file, that is usually called clientMap.js
+				</aside>
 			</section>
 			<section>
 				<h1>Production version</h1>
@@ -486,6 +669,9 @@
 	});
 					</code></pre>
 				</p>
+				<aside class="notes">
+					Read the slide.
+				</aside>
 			</section>
 			<section>
 				<h1>Production version</h1>
@@ -507,35 +693,59 @@
 				<p>
 					The second argument is added to <code class="highlight-code">style</code> tag
 				</p>
+				<aside class="notes">
+					So if you add such JS code into your sources, the library won't load 'css/master.css'
+					it adds a style tag with string inside that you pass as the second argument.
+					You'll see how to do this automatically with GruntJS in the next training session.
+					Let's back to that checking that I mentioned couple slides before.
+					Checks that all href's in the clientmap match resources in the clientCssManger
+					same for JS callbacks and clientFnManager.
+				</aside>
 			</section>
 		</section>
 		<section data-transition="linear" data-transition-speed="slow">
 			<section>
 				<h1>Finishing</h1>
 				<div class="start-finishing"></div>
+				<aside class="notes">
+					In the end, it adds viewport from the clientmap,
+					attaches handler to resize event, triggers ready event,
+					and removes the style tag that hides body.
+				</aside>
 			</section>
 			<section>
 				<h1>Resize Handler</h1>
 				<p>memories the current screen width</p>
 				<p>triggers <code class="highlight-code">resize</code> event</p>
 				<p>triggers <code class="highlight-code">boundChange</code> event</p>
+				<aside class="notes">
+					Read the slide.
+				</aside>
 			</section>
 			<section>
 				<h1>Raise Ready</h1>
 				<p>triggers <code class="highlight-code">ready</code> event</p>
-				<p>adds CSS sources to the page</p>
+				<p>adds CSS sources to the page, in the production version</p>
 				<p>
 					executes JS callbacks
 					<ul>
 						<li>if a callback throws an exception, the next callback won't be executed</li>
 					</ul>
 				</p>
+				<aside class="notes">
+					This ready is not the DOM ready event, it's a library event.
+					Read the slide.
+				</aside>
 			</section>
 		</section>
 		<section>
 			<h1>Callbacks</h1>
 			<p>a callback is executed one time</p>
 			<p>setTimeout's, setInterval's, event handlers live until the next page loading</p>
+			<aside class="notes">
+				Read the slide.
+				Whatever you write in callbacks will work from there.
+			</aside>
 		</section>
 		<section id="controls">
 			<section>
@@ -550,6 +760,11 @@
 					<li><a href="#/control-simplePopup">simplePopup</a></li>
 					<li><a href="#/control-slider">slider</a></li>
 				</ul>
+				<aside class="notes">
+					The library provides a set of controls. You can use them to build UI/UX very quickly.
+					Almost all of them has good tutorials with examples.
+					Let's see how they looks
+				</aside>
 			</section>
 			<section id="control-footerLinks">
 				<h1>footerLinks</h1>
@@ -779,6 +994,9 @@
 				<h1>Documentation</h1>
 				<p>The library is fully documented using <a href="https://github.com/jsdoc3/jsdoc">JSDoc</a></p>
 				<p>Docs are <a href="http://responsivejs.5thfinger.com/docs/">here</a> or <a href="http://responsive-production.s3.amazonaws.com/docs/v1.3.0/index.html">here</a></p>
+				<aside class="notes">
+					Documentation are available by these links.
+				</aside>
 			</section>
 			<section class="docs-overview">
 				<h1>Documentation</h1>
@@ -799,6 +1017,9 @@
 					<iframe id="docs-iframe" width="800" height="500" src="http://responsive-production.s3.amazonaws.com/docs/v1.3.0/index.html">
 					</iframe>
 				</div>
+				<aside class="notes">
+					Read the slide. Show docs by clicking the links.
+				</aside>
 			</section>
 		</section>
 	</div>
