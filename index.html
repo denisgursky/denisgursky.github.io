@@ -454,7 +454,59 @@
 			</section>
 			<section>
 				<h1>Production version</h1>
-				<p>//TODO explain the flow when CSS and JS minified</p>
+				<p>
+					JS and CSS code are concatenated and minified in a single file
+				</p>
+				<p>
+					It's usually called <code class="highlight-code">clientMap.js</code>
+				</p>
+				<p>
+					Sources are not loaded separately
+				</p>
+				<p>
+
+				</p>
+			</section>
+			<section>
+				<h1>Production version</h1>
+				<h2>JS</h2>
+				<p>
+					<code class="highlight-code">clientMap</code> object
+					<pre><code>
+	sources: {
+		js: [{ src: "js/master.js", callback: "runMaster"}]
+	}
+					</code></pre>
+				</p>
+				<p>
+					Code in the same file, <code class="highlight-code">callback</code> matches the first argument
+					<pre><code>
+	RD.clientFnManager.set("runMaster", function () {
+		//do something
+	});
+					</code></pre>
+				</p>
+			</section>
+			<section>
+				<h1>Production version</h1>
+				<h2>CSS</h2>
+				<p>
+					<code class="highlight-code">clientMap</code> object
+					<pre><code>
+	sources: {
+		css: [{ href: "css/master.css"}]
+	}
+					</code></pre>
+				</p>
+				<p>
+					Code in the same file, <code class="highlight-code">href</code> matches the first argument
+					<pre><code>
+	RD.clientCssManager.set('css/master.css', 'body{ background: red; }');
+					</code></pre>
+				</p>
+				<p>
+					The second argument is added to <code class="highlight-code">style</code> tag
+				</p>
 			</section>
 		</section>
 		<section data-transition="linear" data-transition-speed="slow">
