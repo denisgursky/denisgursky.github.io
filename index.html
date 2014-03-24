@@ -266,7 +266,7 @@
 				<h2>CSS</h2>
 				<ul>
 					<li><b class="highlight-word">href:</b> location of the scripts or styles</li>
-					<li><b class="highlight-word">id:</b> an unique indicator of the css file. <a href="#/css-id">Details</a> </li>
+					<li><b class="highlight-word">id:</b> an unique identificator of the css file. <a href="#/css-id">Details</a> </li>
 					<li><b class="highlight-word">urlCondition:</b> RegEx to check a page url</li>
 					<li><b class="highlight-word">contentCondition:</b> CSS selectors to check DOM</li>
 					<li><b class="highlight-word">uaCondition:</b> RegEx to check User Agent</li>
@@ -456,7 +456,7 @@
 				<p>Optional. Default: <code class="highlight-code">false</code></p>
 				<p>Applies the responsive code only for touch devices</p>
 				<aside class="notes">
-					There's a simple condition that check touch. It check ontouchstart property in the window object.
+					There's a simple condition that check touch. It checks ontouchstart property in the window object.
 					So if you'll open the page on a laptop with touch screen you may see the responsive version of the page.
 				</aside>
 			</section>
@@ -584,7 +584,7 @@
 				<h1>Sources</h1>
 				<p><img src="img/lifecycle/sources.png"/></p>
 				<aside class="notes">
-					If of all it checks that clientMapSrc is provided.
+					It checks that clientMapSrc is provided.
 					Then creates media queries for chosen bounds,
 					then filter sources by given conditions, load CSS and JS in parallel.
 					Loading CSS means that the library adds a link tag, so the styles are applied asynchronously
