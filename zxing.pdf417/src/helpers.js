@@ -51,6 +51,14 @@
 		return result;
 	};
 
+	var roundFloat = function(number, n) {
+		n = n || 12;
+
+		var tttt = Math.round(number* Math.pow(10, n)) / Math.pow(10, n);
+
+		return tttt;
+	};
+
 
 	zxing.helpers = {
 		createArray: createArray,
@@ -59,6 +67,7 @@
 		lshift: lshift,
 		rshift: rshift,
 		toChar: toChar,
-		charArrayToString: charArrayToString
+		charArrayToString: charArrayToString,
+		roundFloat: roundFloat
 	};
 })(window.zxing || (window.zxing = {}));

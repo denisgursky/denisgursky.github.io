@@ -14,6 +14,8 @@
 
 	//endregion
 
+	var errorCorrection = new pdf417.ec.ErrorCorrection();
+
 	//region Private Methods
 
 	/// <summary>
@@ -259,14 +261,14 @@
 	var getBarcodeMetadata = function(leftRowIndicatorColumn, rightRowIndicatorColumn) {
 		var leftBarcodeMetadata;
 
-		if (leftRowIndicatorColumn === null ||
+		if (!leftRowIndicatorColumn ||
 			(leftBarcodeMetadata = leftRowIndicatorColumn.getBarcodeMetadata()) === null) {
 			return rightRowIndicatorColumn === null ? null : rightRowIndicatorColumn.getBarcodeMetadata();
 		}
 
 		var rightBarcodeMetadata;
 
-		if (rightRowIndicatorColumn === null ||
+		if (!rightRowIndicatorColumn ||
 			(rightBarcodeMetadata = rightRowIndicatorColumn.getBarcodeMetadata()) === null) {
 			return leftBarcodeMetadata;
 		}
@@ -524,14 +526,13 @@
 			return -1;
 		}
 
-		var errorCount = 0;
+		var decodeResult = errorCorrection.decode(codewords, numECCodewords, erasures);
 
-		//TODO: is not implemented
-//		if (!errorCorrection.decode(codewords, numECCodewords, erasures, out errorCount)) {
-//			return -1;
-//		}
+		if (!decodeResult.result) {
+			return -1;
+		}
 
-		return errorCount;
+		return decodeResult.errorLocationsCount;
 	};
 
 	/// <summary>
@@ -731,11 +732,11 @@
 			detectionResult = null;
 
 		for(var i = 0; i < 2; i++) {
-			if(imageTopLeft !== null) {
+			if(!!imageTopLeft) {
 				leftRowIndicatorColumn = getRowIndicatorColumn(image, boundingBox, imageTopLeft, true, minCodewordWidth, maxCodewordWidth);
 			}
 
-			if(imageTopRight !== null) {
+			if(!!imageTopRight) {
 				rightRowIndicatorColumn = getRowIndicatorColumn(image, boundingBox, imageTopRight, false, minCodewordWidth, maxCodewordWidth);
 			}
 

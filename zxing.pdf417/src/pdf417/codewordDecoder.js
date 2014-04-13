@@ -23,7 +23,7 @@
 		for (var j = 0; j < pdf417.common.BARS_IN_MODULE; j++) {
 			var size = 0.0;
 
-			while ((currentSymbol & 0x1) == currentBit) {
+			while ((currentSymbol & 0x1) === currentBit) {
 				size += 1.0;
 				currentSymbol >>= 1;
 			}
@@ -152,6 +152,7 @@
 		return bestMatch;
 	};
 
+
 	/// <summary>
 	/// Gets the decoded value.
 	/// </summary>
@@ -172,3 +173,5 @@
 	pdf417.CodewordDecoder.getDecodedValue = getDecodedValue;
 
 })(window.zxing || (window.zxing = {}));
+
+

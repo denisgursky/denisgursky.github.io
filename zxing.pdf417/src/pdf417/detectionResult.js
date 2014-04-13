@@ -35,7 +35,7 @@
 		/// </summary>
 		/// <param name="detectionResultColumn">Detection result column.</param>
 		var adjustIndicatorColumnRowNumbers = function(detectionResultColumn) {
-			if (detectionResultColumn !== null) {
+			if (!!detectionResultColumn) {
 				detectionResultColumn.adjustCompleteIndicatorColumnRowNumbers(metadata);
 			}
 		};
@@ -45,7 +45,7 @@
 		/// </summary>
 		/// <returns> zero </returns>
 		var adjustRowNumbersFromBothRI = function() {
-			if (detectionResultColumns[0] == null || detectionResultColumns[columnCount + 1] == null){
+			if (!detectionResultColumns[0] || !detectionResultColumns[columnCount + 1]){
 				return;
 			}
 
@@ -53,14 +53,14 @@
 				RRIcodewords = detectionResultColumns[columnCount + 1].codewords;
 
 			for (var codewordsRow = 0; codewordsRow < LRIcodewords.length; codewordsRow++) {
-				if (LRIcodewords[codewordsRow] !== null &&
-					RRIcodewords[codewordsRow] !== null &&
-					LRIcodewords[codewordsRow].rowNumber == RRIcodewords[codewordsRow].rowNumber) {
+				if (!!LRIcodewords[codewordsRow] &&
+					!!RRIcodewords[codewordsRow] &&
+					LRIcodewords[codewordsRow].rowNumber === RRIcodewords[codewordsRow].rowNumber) {
 
 					for (var barcodeColumn = 1; barcodeColumn <= columnCount; barcodeColumn++) {
 						var codeword = detectionResultColumns[barcodeColumn].codewords[codewordsRow];
 
-						if (codeword == null) {
+						if (!codeword) {
 							continue;
 						}
 
@@ -80,7 +80,7 @@
 		/// </summary>
 		/// <returns>The unadjusted row count.</returns>
 		var adjustRowNumbersFromRRI = function() {
-			if (detectionResultColumns[columnCount + 1] == null) {
+			if (!detectionResultColumns[columnCount + 1]) {
 				return 0;
 			}
 
@@ -88,7 +88,7 @@
 				codewords = detectionResultColumns[columnCount + 1].codewords;
 
 			for (var codewordsRow = 0; codewordsRow < codewords.length; codewordsRow++) {
-				if (codewords[codewordsRow] == null) {
+				if (!codewords[codewordsRow]) {
 					continue;
 				}
 
@@ -115,7 +115,7 @@
 		/// </summary>
 		/// <returns> Unadjusted row Count.</returns>
 		var adjustRowNumbersFromLRI = function() {
-			if (detectionResultColumns[0] == null) {
+			if (!detectionResultColumns[0]) {
 				return 0;
 			}
 
@@ -123,7 +123,7 @@
 				codewords = detectionResultColumns[0].codewords;
 
 			for (var codewordsRow = 0; codewordsRow < codewords.length; codewordsRow++) {
-				if (codewords[codewordsRow] == null) {
+				if (!codewords[codewordsRow]) {
 					continue;
 				}
 
@@ -133,7 +133,7 @@
 				for (var barcodeColumn = 1; barcodeColumn < columnCount + 1 && invalidRowCounts < ADJUST_ROW_NUMBER_SKIP; barcodeColumn++) {
 					var codeword = detectionResultColumns[barcodeColumn].codewords[codewordsRow];
 
-					if (codeword != null) {
+					if (!!codeword) {
 						invalidRowCounts = adjustRowNumberIfValid(rowIndicatorRowNumber, invalidRowCounts, codeword);
 						if (!codeword.hasValidRowNumber()) {
 							unadjustedCount++;
@@ -152,7 +152,7 @@
 		/// <param name="invalidRowCounts">Invalid row counts.</param>
 		/// <param name="codeword">Codeword.</param>
 		var adjustRowNumberIfValid = function(rowIndicatorRowNumber, invalidRowCounts, codeword) {
-			if (codeword == null) {
+			if (!codeword) {
 				return invalidRowCounts;
 			}
 
@@ -202,7 +202,7 @@
 				var codewords = detectionResultColumns[barcodeColumn].codewords;
 
 				for (var codewordsRow = 0; codewordsRow < codewords.length; codewordsRow++) {
-					if (codewords[codewordsRow] === null) {
+					if (!codewords[codewordsRow]) {
 						continue;
 					}
 
@@ -225,7 +225,7 @@
 				previousColumnCodewords = detectionResultColumns[barcodeColumn - 1].codewords,
 				nextColumnCodewords = previousColumnCodewords;
 
-			if (detectionResultColumns[barcodeColumn + 1] !== null) {
+			if (!!detectionResultColumns[barcodeColumn + 1]) {
 				nextColumnCodewords = detectionResultColumns[barcodeColumn + 1].codewords;
 			}
 
@@ -272,7 +272,7 @@
 		/// <param name="codeword">Codeword.</param>
 		/// <param name="otherCodeword">Other codeword.</param>
 		var adjustRowNumber = function(codeword, otherCodeword) {
-			if (otherCodeword === null) {
+			if (!otherCodeword) {
 				return false;
 			}
 

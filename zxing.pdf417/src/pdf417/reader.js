@@ -17,7 +17,7 @@
 	/// <param name="p1">P1.</param>
 	/// <param name="p2">P2.</param>
 	var getMinWidth = function(point1, point2) {
-		if(point1 === null || point2 === null) {
+		if(!point1 || !point2) {
 			return Number.MAX_VALUE;
 		}
 
@@ -31,7 +31,7 @@
 	/// <param name="p1">P1.</param>
 	/// <param name="p2">P2.</param>
 	var getMaxWidth = function(point1, point2) {
-		if(point1 === null || point2 === null) {
+		if(!point1 || !point2) {
 			return 0;
 		}
 
@@ -44,11 +44,11 @@
 	/// <returns>The minimum codeword width.</returns>
 	/// <param name="p">P.</param>
 	var getMinCodewordWidth = function(points) {
-		return Math.min(
+		return Math.floor(Math.min(
 			Math.min(getMinWidth(points[0], points[4]), getMinWidth(points[6], points[2]) * common.MODULES_IN_CODEWORD /
 				common.MODULES_IN_STOP_PATTERN),
 			Math.min(getMinWidth(points[1], points[5]), getMinWidth(points[7], points[3]) * common.MODULES_IN_CODEWORD /
-				common.MODULES_IN_STOP_PATTERN));
+				common.MODULES_IN_STOP_PATTERN)));
 	};
 
 	/// <summary>
@@ -57,11 +57,11 @@
 	/// <returns>The max codeword width.</returns>
 	/// <param name="p">P.</param>
 	var getMaxCodewordWidth = function(points) {
-		return Math.max(
+		return Math.floor(Math.max(
 			Math.max(getMaxWidth(points[0], points[4]), getMaxWidth(points[6], points[2]) * common.MODULES_IN_CODEWORD /
 				common.MODULES_IN_STOP_PATTERN),
 			Math.max(getMaxWidth(points[1], points[5]), getMaxWidth(points[7], points[3]) * common.MODULES_IN_CODEWORD /
-				common.MODULES_IN_STOP_PATTERN));
+				common.MODULES_IN_STOP_PATTERN)));
 	};
 
 	/// <summary>

@@ -40,7 +40,7 @@
 		};
 
 		var getRow = function(y, row) {
-			if(row === null || row.length < width) {
+			if(!row || row.length < width) {
 				row = zxing.helpers.createArray(width, 0);
 			}
 

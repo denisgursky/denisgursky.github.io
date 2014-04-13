@@ -70,7 +70,6 @@ $(function(){
 				.then(loadToCanvas)
 				.then(run)
 				.then(function(){
-					debugger;
 				});
 		}
 	});

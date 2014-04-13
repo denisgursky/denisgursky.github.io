@@ -172,7 +172,7 @@
 	/// <param name="pattern">Pattern.</param>
 	var findRowsWithPattern = function(matrix, height, width, startRow, startColumn, pattern) {
 
-		var result = [],
+		var result = zxing.helpers.createArray(4, null),
 			found = false,
 			counters = zxing.helpers.createArray(pattern.length, 0);
 
@@ -268,7 +268,7 @@
 		var height = matrix.height,
 			width = matrix.width;
 
-		var result = [];
+		var result = zxing.helpers.createArray(8, null);
 
 		copyToResult(result, findRowsWithPattern(matrix, height, width, startRow, startColumn, START_PATTERN), INDEXES_START_PATTERN);
 

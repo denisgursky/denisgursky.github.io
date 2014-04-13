@@ -35,15 +35,20 @@
 	var PAL = 29;
 
 	var PUNCT_CHARS = [
-		';', '<', '>', '@', '[', '\\', '}', '_', '`', '~', '!',
-		'\r', '\t', ',', ':', '\n', '-', '.', '$', '/', '"', '|', '*',
-		'(', ')', '?', '{', '}', '\''
+		';'.charCodeAt(), '<'.charCodeAt(), '>'.charCodeAt(), '@'.charCodeAt(), '['.charCodeAt(),
+		'\\'.charCodeAt(), '}'.charCodeAt(), '_'.charCodeAt(), '`'.charCodeAt(), '~'.charCodeAt(),
+		'!'.charCodeAt(), '\r'.charCodeAt(), '\t'.charCodeAt(), ','.charCodeAt(), ':'.charCodeAt(),
+		'\n'.charCodeAt(), '-'.charCodeAt(), '.'.charCodeAt(), '$'.charCodeAt(), '/'.charCodeAt(),
+		'"'.charCodeAt(), '|'.charCodeAt(), '*'.charCodeAt(), '('.charCodeAt(), ')'.charCodeAt(), '?'.charCodeAt(),
+		'{'.charCodeAt(), '}'.charCodeAt(), '\''.charCodeAt()
 	];
 
 	var MIXED_CHARS = [
-		'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '&',
-		'\r', '\t', ',', ':', '#', '-', '.', '$', '/', '+', '%', '*',
-		'=', '^'
+		'0'.charCodeAt(), '1'.charCodeAt(), '2'.charCodeAt(), '3'.charCodeAt(), '4'.charCodeAt(),
+		'5'.charCodeAt(), '6'.charCodeAt(), '7'.charCodeAt(), '8'.charCodeAt(), '9'.charCodeAt(), '&'.charCodeAt(),
+		'\r'.charCodeAt(), '\t'.charCodeAt(), ','.charCodeAt(), ':'.charCodeAt(), '#'.charCodeAt(),
+		'-'.charCodeAt(), '.'.charCodeAt(), '$'.charCodeAt(), '/'.charCodeAt(), '+'.charCodeAt(),
+		'%'.charCodeAt(), '*'.charCodeAt(), '='.charCodeAt(), '^'.charCodeAt()
 	];
 
 	var NUMBER_OF_SEQUENCE_CODEWORDS = 2;
@@ -102,11 +107,10 @@
 					// Alpha (uppercase alphabetic)
 					if (subModeCh < 26) {
 						// Upper case Alpha Character
-						debugger; //check_it
-						ch = 'A' + subModeCh;
+						ch = 'A'.charCodeAt() + subModeCh;
 					} else {
 						if (subModeCh === 26) {
-							ch = ' ';
+							ch = ' '.charCodeAt();
 						} else if (subModeCh === LL) {
 							subMode = Mode.LOWER;
 						} else if (subModeCh === ML) {
@@ -126,8 +130,7 @@
 				case Mode.LOWER:
 					// Lower (lowercase alphabetic)
 					if (subModeCh < 26) {
-						debugger; //check_it
-						ch = 'a' + subModeCh;
+						ch = 'a'.charCodeAt() + subModeCh;
 					} else {
 						if (subModeCh === 26) {
 							ch = ' ';
@@ -157,7 +160,7 @@
 						if (subModeCh === PL) {
 							subMode = Mode.PUNCT;
 						} else if (subModeCh === 26) {
-							ch = ' ';
+							ch = ' '.charCodeAt();
 						} else if (subModeCh === LL) {
 							subMode = Mode.LOWER;
 						} else if (subModeCh === AL) {
@@ -193,11 +196,10 @@
 					// Restore sub-mode
 					subMode = priorToShiftMode;
 					if (subModeCh < 26) {
-						debugger; //check_it
-						ch = ('A' + subModeCh);
+						ch = 'A'.charCodeAt() + subModeCh;
 					} else {
 						if (subModeCh === 26) {
-							ch = ' ';
+							ch = ' '.charCodeAt();
 						} else if (subModeCh === TEXT_COMPACTION_MODE_LATCH) {
 							subMode = Mode.ALPHA;
 						}
@@ -215,6 +217,7 @@
 						} else if (subModeCh === MODE_SHIFT_TO_BYTE_COMPACTION_MODE) {
 							// PS before Shift-to-Byte is used as a padding character,
 							// see 5.4.2.4 of the specification
+							debugger; //check_it
 							result += byteCompactionData[i];
 						} else if (subModeCh === TEXT_COMPACTION_MODE_LATCH) {
 							subMode = Mode.ALPHA;

@@ -38,7 +38,7 @@
 		/// Sets the row number as the row's indicator column.
 		/// </summary>
 		var setRowNumberAsRowIndicatorColumn = function() {
-			self.rowNumber = Math.floor((self.value / 30 ) * 3 + self.bucket / 3);
+			self.rowNumber = Math.floor(self.value / 30 ) * 3 +  Math.floor(self.bucket / 3);
 		};
 
 		/// <summary>

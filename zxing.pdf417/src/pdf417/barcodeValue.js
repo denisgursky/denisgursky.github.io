@@ -8,7 +8,7 @@
 	pdf417.BarcodeValue = function() {
 		//region Private Fields
 
-		var values = {};
+		var values = [];
 
 		//endregion
 
@@ -28,21 +28,19 @@
 
 			var result = [];
 
-			for(var key in values) {
-				if(values.hasOwnProperty(key)){
-					key = parseInt(key);
+			for(var i = 0; i < values.length; i++){
+				var item = values[i];
 
-					var value = values[key];
+				var value = item.value;
 
-					if (value > maxConfidence) {
-						maxConfidence = value;
+				if (value > maxConfidence) {
+					maxConfidence = value;
 
-						result = [];
+					result = [];
 
-						result.push(key);
-					} else if (value === maxConfidence) {
-						result.push(key);
-					}
+					result.push(item.key);
+				} else if (value === maxConfidence) {
+					result.push(item.key);
 				}
 			}
 
@@ -55,11 +53,24 @@
 		/// </summary>
 		/// <param name="value">Value.</param>
 		var setValue = function(value){
-			var confidence = values[value] || 0;
+			var item = _getValue(value);
 
-			confidence++;
+			if(!item){
+				item = {key: value, value: 0};
+				values.push(item);
+			}
 
-			values[value] = confidence;
+			item.value++;
+		};
+
+		var _getValue = function(value){
+			for(var i = 0; i < values.length; i++){
+				if(values[i].key === value){
+					return values[i];
+				}
+			}
+
+			return null;
 		};
 
 		//endregion

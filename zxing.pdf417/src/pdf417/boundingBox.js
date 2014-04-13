@@ -45,12 +45,12 @@
 		/// </summary>
 		var calculateMinMaxValues = function() {
 			// Constructor ensures that either Left or Right is not null
-			if (self.topLeft === null) {
+			if (!self.topLeft) {
 				topLeft = new zxing.ResultPoint(0, topRight.y);
 				self.bottomLeft = new zxing.ResultPoint(0, self.bottomRight.y);
-			} else if (self.topRight === null) {
+			} else if (!self.topRight) {
 				self.topRight = new zxing.ResultPoint(image.width - 1, self.topLeft.y);
-				self.bottomRight = new zxing.ResultPoint(image.width - 1, self.topLeft.Y);
+				self.bottomRight = new zxing.ResultPoint(image.width - 1, self.topLeft.y);
 			}
 
 			self.minX = Math.floor(Math.min(self.topLeft.x, self.bottomLeft.x));
@@ -82,7 +82,7 @@
 				}
 
 				// TODO use existing points to better interpolate the new x positions
-				var newTop = new pdf417.ResultPoint(top.x, newMinY);
+				var newTop = new zxing.ResultPoint(top.x, newMinY);
 
 				if (isLeft) {
 					newTopLeft = newTop;
@@ -100,7 +100,7 @@
 				}
 
 				// TODO use existing points to better interpolate the new x positions
-				var newBottom = new pdf417.ResultPoint(bottom.x, newMaxY);
+				var newBottom = new zxing.ResultPoint(bottom.x, newMaxY);
 				if (isLeft) {
 					newBottomLeft = newBottom;
 				} else {
@@ -131,11 +131,11 @@
 	/// <param name="leftBox">Left.</param>
 	/// <param name="rightBox">Right.</param>
 	pdf417.BoundingBox.merge = function(leftBox, rightBox) {
-		if (leftBox == null){
+		if (!leftBox){
 			return rightBox;
 		}
 
-		if (rightBox == null) {
+		if (!rightBox) {
 			return leftBox;
 		}
 
