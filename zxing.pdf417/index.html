@@ -1,41 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
 <div>
-	<input id="fileUpload" type="file" />
-	<button id="btnUpload">Upload</button>
+	<input style="display: block;" id="fileUpload" type="file" />
+	<button style="display: block; margin-top: 10px; width: 100%;" id="btnDecode">Decode</button>
+	<button style="display: block; margin-top: 10px; width: 100%;" id="btnDecode2">Decode 2</button>
+</div>
+<div>
+	<h3 id="resultTime"></h3>
+	<textarea id="result" style="width: 98%; height: 300px; border: 1px solid #cccccc;"></textarea>
 </div>
 
 <script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
 
-<script src="src/helpers.js"></script>
-<script src="src/binarizers.js"></script>
-<script src="src/bitMatrix.js"></script>
-<script src="src/luminanceSource.js"></script>
-<script src="src/resultPoint.js"></script>
-<script src="src/decoderResult.js"></script>
-
-<script src="src/pdf417/common.js"></script>
-<script src="src/pdf417/ec/modulusPoly.js"></script>
-<script src="src/pdf417/ec/modulusGF.js"></script>
-<script src="src/pdf417/ec/errorCorrection.js"></script>
-<script src="src/pdf417/barcodeMetadata.js"></script>
-<script src="src/pdf417/barcodeValue.js"></script>
-<script src="src/pdf417/boundingBox.js"></script>
-<script src="src/pdf417/codeword.js"></script>
-<script src="src/pdf417/codewordDecoder.js"></script>
-<script src="src/pdf417/decodedBitStreamParser.js"></script>
-<script src="src/pdf417/detectionResult.js"></script>
-<script src="src/pdf417/detectionResultColumn.js"></script>
-<script src="src/pdf417/detectionResultRowIndicatorColumn.js"></script>
-
-<script src="src/pdf417/decoder.js"></script>
-<script src="src/pdf417/detector.js"></script>
-<script src="src/pdf417/reader.js"></script>
+<script src="zxing.pdf417.min.js"></script>
 
 <script src="index.js"></script>
 
