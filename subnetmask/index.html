@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="css/styles.css"/>
+<head>
+
+</head>
+
+<body>
+
+<div class="container">
+	<form>
+		<div class="field">
+			<label for="filename">
+				Filename:
+			</label>
+			<input id="filename" type="text" />
+		</div>
+		<div class="field">
+			<label for="mask-list">
+				Subnet Masks:
+			</label>
+			<textarea id="mask-list">
+			</textarea>
+		</div>
+	</form>
+	<div class="field">
+		<button id="run">Run</button>
+	</div>
+</div>
+
+<script src="js/vendor/jszip.js"></script>
+<script src="js/vendor/FileSaver.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>
