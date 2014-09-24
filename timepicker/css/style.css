@@ -1,0 +1,71 @@
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.btn {
+	border-radius: 0;
+}
+
+.time-picker {
+	overflow: hidden;
+	position: relative;
+	height: 102px;  /*34px * 3 = 102px */
+}
+
+.day {
+	height: 34px;
+	line-height: 34px;
+	border: 1px solid #ccc;
+	font-weight: bold;
+	text-align: center;
+
+	width: 140px;
+}
+
+.days-list, .btn-left, .time-list-wrapper, .btn-right {
+	position: absolute;
+}
+
+.days-list {
+	left: 0;
+}
+.btn-left {
+	left: 140px; /* days-list width */
+}
+
+.time-list-wrapper {
+	left: 185px; /* 140px + 45px = 185px it's days-list width + btn-left width*/
+	right: 45px; /* it's btn-right width*/
+}
+
+.btn-right {
+	right: 0;
+}
+
+.btn-left, .btn-right {
+	width: 45px;
+	text-align: center;
+	height: 102px; /*34px * 3 = 102px */
+}
+
+.day, .btn-time {
+	height: 34px;
+}
+
+.day-time {
+	overflow: hidden;
+}
+
+.btn-time {
+	float: left;
+}
+
+.time-list-wrapper {
+	overflow: hidden;
+}
+.time-list {
+	width: 10000px;
+}
+
